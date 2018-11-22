@@ -12,7 +12,7 @@ int main ()
 
 
     int lettCount = 1;
-    int maxLC = 0;
+    int maxLC = 1;
 
     for (int i = 0; i < strlen(napis); i ++)
     {
