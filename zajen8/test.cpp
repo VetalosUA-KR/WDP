@@ -4,80 +4,93 @@
 using namespace std;
 
 
-
-int main ()
+void dekorate(string d, int _count)
 {
-    int n = 2;
-
-
-    int a1[n][n];
-    a1[0][0] = 1; a1[0][1] = 2;
-    a1[1][0] = 3; a1[1][1] = 4;
-
-    int a2[n][n];
-    a2[0][0] = 5; a2[0][1] = 6;
-    a2[1][0] = 7; a2[1][1] = 8;
-
-    /*int a1[n][n];
-    a1[0][0] = 1; a1[0][1] = 2; a1[0][2] = 3;
-    a1[1][0] = 4; a1[1][1] = 5; a1[1][2] = 6;
-    a1[2][0] = 7; a1[2][1] = 8; a1[2][2] = 9;
-
-    int a2[n][n];
-    a2[0][0] = 10; a2[0][1] = 11; a2[0][2] = 12;
-    a2[1][0] = 13; a2[1][1] = 14; a2[1][2] = 15;
-    a2[2][0] = 16; a2[2][1] = 17; a2[2][2] = 18;*/
-
-
-
-    int ilA[n][n];
-
-
-    for (int i = 0; i < n; i++)
+    cout<<endl;
+    for(int q = 0; q < (_count*4)-1; q++)
     {
-        for (int j = 0; j < n; j++)
-        {
-            cout<<a1[i][j]<<" ";
-        }
-        cout<<endl;
+        cout<<d;
     }
-    cout<<endl<<"--"<<endl;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            cout<<a2[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-cout<<endl<<"--"<<endl;
-
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            int s = 0;
-            for(int k = 0; k < n; k++)
-            {
-                ///s += a1[i][k]*a2[k][j];
-                cout<<a1[i][k]<<" * "<<a2[k][j]<<" || "<<"i = "<<i<<"    j = "<<j<<"    k = "<<k<<endl;
-            }
-            cout<<endl;
-        }
-    }
-
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            //cout<<ilA[i][j]<<" ";
-        }
-        cout<<endl;
-    }
-
-    return 0;
+    cout<<endl;
 }
 
 
+int main ()
+{
+    int n = 4;
 
+    int arr[n][n];
+
+
+    arr[0][0] = 0; arr[0][1] = 1; arr[0][2] = 2; arr[0][3] = 3;
+    arr[1][0] = -1; arr[1][1] = 0; arr[1][2] = 1; arr[1][3] = 2;
+    arr[2][0] = -2; arr[2][1] = -1; arr[2][2] = 0; arr[2][3] = 1;
+    arr[3][0] = -3; arr[3][1] = -2; arr[3][2] = -1; arr[3][3] = 0;
+
+
+    /*for(int i = 0; i< n; i++)
+    {
+        for(int j = 0; j< n; j++)
+        {
+            if(i > j)
+            {
+                arr[i][j] = 1;
+            }
+            else if (i < j)
+            {
+                arr[i][j] = 5;
+            }
+            else
+            {
+                arr[i][j] = 0;
+            }
+        }
+    }*/
+
+    for(int i = 0; i< n; i++)
+    {
+        for(int j = 0; j< n; j++)
+        {
+            cout<<arr[i][j]<<" | ";
+        }
+       dekorate("-", n);
+    }
+
+    dekorate("=", n);
+    cout<<endl;
+
+    int buffers = 0;
+    for(int i = 0; i< n; i++)
+    {
+        for(int j = i; j< n; j++)
+        {
+            /*buffers = arr[i][j];
+            arr[i][j] = arr[j][i];
+            arr[j][i] = buffers;*/
+            //arr[i][j] = arr[i][i];
+            //arr[i][j] = arr[j][i]*0.85;
+
+        }
+    }
+
+    for(int i = 0; i< n; i++)
+    {
+        buffers = arr[0][i];
+        arr[0][i] = arr[n-1][i];
+        arr[n-1][i] = buffers;
+    }
+
+
+    for(int i = 0; i< n; i++)
+    {
+        for(int j = 0; j< n; j++)
+        {
+            cout<<arr[i][j]<<" | ";
+        }
+        dekorate("-", n);
+    }
+
+
+    return 0;
+}
 
