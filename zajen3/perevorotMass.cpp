@@ -13,9 +13,9 @@ int main ()
 
     for (int i = 0; i < n; i++)
     {
-        cout << mas[i] << " "<<endl;
+        cout << mas[i] << " ";
     }
-    cout << "========"<<endl;
+    cout <<endl<< "========"<<endl;
     for (int i = 0; i < n/2; i++)
     {
         int a = mas[i];
@@ -26,7 +26,7 @@ int main ()
 
     for (int i = 0; i < n; i++)
     {
-        cout << mas[i] << " "<<endl;
+        cout << mas[i] << " ";
     }
 
     return 0;

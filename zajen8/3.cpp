@@ -27,7 +27,8 @@ int main ()
         }
     }
 
-    cout<<maxLC;
+    cout<<maxLC<<endl<<endl;
+    cout<<strlen(napis);
 
 
     return 0;

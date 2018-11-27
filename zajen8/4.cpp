@@ -42,5 +42,7 @@ int main ()
         cout <<"litera - "<<letters[i][0]<<" pojawia sie "<<int(letters[i][1])<<" raza"<<endl;
     }
 
+    //cout<<"length = "<<strlen(letters);
+
     return 0;
 }
