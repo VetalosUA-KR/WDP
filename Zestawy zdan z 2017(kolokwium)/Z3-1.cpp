@@ -2,6 +2,12 @@
 
 using namespace std;
 
+/*
+
+ÍÅ ÄÎ ÊÎÍÖÀ
+
+*/
+
 int main ()
 {
     int tab[100];
