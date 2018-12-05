@@ -3,16 +3,14 @@
 
 using namespace std;
 
-int poleTrojk(int a, int b, int c);
-int obwTrojk(int a, int b, int c);
-bool czyBoki(int a, int b, int c);
+bool czyPierwsz(int a);
 
 int main ()
 {
     int a;
     int b;
     int c;
-    int ile = 1;
+    int ile = 0;
 
     cout <<"wpisz dowolny liczby"<<endl;
 
@@ -25,39 +23,24 @@ int main ()
         ile++;
         if(ile >= 3)
         {
-            if(czyBoki(a,b,c) == true)
+            if(czyPierwsz(a) || czyPierwsz(b) || czyPierwsz(c))
             {
-                cout<<"obwod trojkata"<<obwTrojk(a,b,c)<<endl;
-                cout<<"pole "<<poleTrojk<<endl;
+                cout<<a<<" "<<b<<" "<<c<<endl;
             }
         }
-
     }
-
-
     return 0;
 }
 
-
-int poleTrojk(int a, int b, int c)
+bool czyPierwsz(int a)
 {
-    float p = (a+b+c)/2.0;
-    float pt;
-    pt = sqrt(p*(p-a)*(p-b)*(p-c));
-    return pt;
-}
-
-int obwTrojk(int a, int b, int c)
-{
-    if(a+b > c && b+c>a && a+c>b)
-        return a+b+c;
-}
-
-bool czyBoki(int a, int b, int c)
-{
-    if(a <= 0 || b <= 0 || c <= 0)
-        return false;
-    if(a+b > c && b+c>a && a+c>b)
+    for(int i = 2; i < a-1; i++)
+    {
+        if(a%i == 0)
+        {
+            return false;
+        }
+    }
     return true;
-    else return false;
 }
+
