@@ -5,48 +5,48 @@ using namespace std;
 
 int main ()
 {
-    int ileElemBukv = 8;/// Кол-во "элементов" в нашем слове
+    int ileElemBukv = 8;/// ilosc elementow w slowie
     int slowo[ileElemBukv];
-    /// Буква 1
+
+    /*
+       slowo (PГіЕ‚)
+    */
+    /// Р‘СѓРєРІР° 1
     slowo[0] = 43;
     slowo[1] = 15;
 
-    /// Буква 2
+    /// Р‘СѓРєРІР° 2
     slowo[2] = 44;
     slowo[3] = 41;
     slowo[4] = 14;
 
-    /// Буква 3
+    /// Р‘СѓРєРІР° 3
     slowo[5] = 44;
     slowo[6] = 40;
     slowo[7] = 11;
 
 
 
-    char szesnastkowy[2];///
-
-
-
-
 
     int n = 6*ileElemBukv;
     int byteArray [n];
-    /// Заполняем исходный массив пустыми байтами
+    /// Р—Р°РїРѕР»РЅСЏРµРј РёСЃС…РѕРґРЅС‹Р№ РјР°СЃСЃРёРІ РїСѓСЃС‚С‹РјРё Р±Р°Р№С‚Р°РјРё
+    /// WypeЕ‚nij tablicД™ pustymi bajtami.
     for(int i = 0; i < n; i ++)
     {
         byteArray[i] = 0;
     }
 
-
-    /// Перебираем каждую букву и переводим в (2) код и добавляем в исходнный массив битов
-    int counter = 5;/// счетчик битов
+    /// РџРµСЂРµР±РёСЂР°РµРј РєР°Р¶РґСѓСЋ Р±СѓРєРІСѓ Рё РїРµСЂРµРІРѕРґРёРј РІ (2) РєРѕРґ Рё РґРѕР±Р°РІР»СЏРµРј РІ РёСЃС…РѕРґРЅРЅС‹Р№ РјР°СЃСЃРёРІ Р±РёС‚РѕРІ
+    /// kaЕјdД… element litery konwertujemy na kod dwojowy i dodajemy go do poczД…tkowej tablicy bitГіw.
+    int counter = 5;/// СЃС‡РµС‚С‡РёРє Р±РёС‚РѕРІ
     for(int i = 0; i < ileElemBukv; i++)
     {
-        int a = slowo[i]; /// исходное число
+        int a = slowo[i]; /// С‚РµРєСѓС‰РёР№ СЌР»РµРјРµРЅС‚  obecny element
 
-        int b = 2;  /// система исчесления
-        int r;      /// останоток от деления
-        int c;      /// результат деления
+        int b = 2;  /// СЃРёСЃС‚РµРјР° РёСЃС‡РµСЃР»РµРЅРёСЏ    system liczbowy
+        int r;      /// РѕСЃС‚Р°РЅРѕС‚РѕРє РѕС‚ РґРµР»РµРЅРёСЏ  reszta z dzielenie
+        int c;      /// СЂРµР·СѓР»СЊС‚Р°С‚ РґРµР»РµРЅРёСЏ     wynik z dzielenie
         int currentPozition = 0;
 
         while (c != 0)
@@ -58,15 +58,15 @@ int main ()
             currentPozition++;
         }
         counter += 6;
-        c = 1;/// убираем 0 у результата деления
+        c = 1;/// СѓР±РёСЂР°РµРј 0 Сѓ СЂРµР·СѓР»СЊС‚Р°С‚Р° РґРµР»РµРЅРёСЏ
     }
 
 
 
     ///
     ///
-    /// ВЫВОД НА ЭКРАН
-    ///
+    /// Р’Р«Р’РћР” РќРђ Р­РљР РђРќ
+    /// Wypisuje na ekran
     ///
     int t = 0;
     for(int i = 0; i < n; i++)
@@ -88,6 +88,7 @@ int main ()
     cout<<endl;
 
 
+    ///transformacja z dwГіjkowego na szesnastkowy
 
     int counter_16 = 0;
     int kolElem = n/4;
