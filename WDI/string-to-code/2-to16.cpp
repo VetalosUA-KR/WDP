@@ -15,8 +15,6 @@ int main ()
     int counter = 0;
     int kolElem = n/4;
 
-    int index_16 = 0;
-
     for(int j = 0; j < kolElem; j++)
     {
         int sum = 0;
