@@ -12,6 +12,6 @@ int sumKwad(int n)
 
 int main ()
 {
-    cout<<sumKwad(5);
+    cout<<sumKwad(4);
     return 0;
 }

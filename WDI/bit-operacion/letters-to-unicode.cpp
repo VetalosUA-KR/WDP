@@ -16,6 +16,7 @@ int main ()
     int n = 4;
     char *symbols[n] = {"ź","ł","p","ą"};
 
+    /// Sprawdź, ile bajtów zawiera aktualny symbol
     for(int i = 0; i < n; i++)
     {
         if((*symbols[i] & 0x80) == 128)/// 2 байта на символ
@@ -36,6 +37,8 @@ int main ()
 
 /// сохраняет кол-во байт текущей буквы в массив,
 /// который передается дальше на обработку для переведения в двоичную систему
+///
+/// wpisz wynik do tablicy jako(ź -> [197][186]).
 void ileBajt(char *s)
 {
     int i = 0;
@@ -51,6 +54,8 @@ void ileBajt(char *s)
 /// конвертирует в двоичную систему байты текущего элемента
 /// выводит результат на экран, массим rezultArray который хранит 8 бит обновляется после каждой итерации цикла
 /// на элемент состоящий из 2 байт, будет выполнено 2 итерации цикла
+///
+/// Konwertuj bajty znaków na binarne i zapisz w jeden ciąg bajtów (11000101 10111010).
 void convertTo_2(int tab[])
 {
     cout<<tab[0]<<" ";
@@ -85,27 +90,33 @@ void convertTo_2(int tab[])
         cout<<rezultArray[i]<<"";
     }
     cout<<"    ";
-    /// Итоговый массив байт
-    /// символ из 2-х байт
+    ///
+    /// jezeli symbol 2 bajtowy
     if(ile == 2)
     {
+        /// przesuwamy nasz główny ciąg bitów o 2 elementy w prawo, od 9 do zmniejszenia, .
+        ///
         /// Сдвигаем массив на 2 элемента в право, с 9 элемента
         for(int i = 9; i >= 2; i--)
         {
             rezultArray[i] = rezultArray[i-2];
         }
+        /// pierwsze 5 bitów resetujemy na 0
+        ///
         /// первые 5 элементов обнуляем
         for(int i = 0; i < 6; i++)
         {
             rezultArray[i] = 0;
         }
+
         /// выводим результат на экран
         for(int i = 0; i < n; i ++)
         {
             cout<<rezultArray[i]<<"";
         }
         cout<<"    U+";
-
+        ///
+        /// Ciąg bitów dzielimy przez 4 bity i konwertujemy na system szesnastkowy. Wynik 4 cyfry (0 1 7 A)
         int counter_16 = 0;
         int kolElem = 16/4;
         for(int j = 0; j < kolElem; j++)
